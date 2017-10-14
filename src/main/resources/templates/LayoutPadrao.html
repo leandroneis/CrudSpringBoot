@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+<meta charset="UTF-8" />
+<title>Prova</title>
+<link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/datepicker.standalone.min.css}" />
+</head>
+<body>
+	<header layout:include="Cabecalho"></header>
+
+	<section layout:fragment="conteudo">
+		<p>Conteúdo principal</p>
+	</section>
+
+	<script th:src="@{/js/jquery.min.js}"></script>
+	<script th:src="@{/js/bootstrap.min.js}"></script>
+	<script th:src="@{/js/datepicker.min.js}"></script>
+	<script th:src="@{/js/datepicker.pt-BR.min.js}"></script>
+	<script th:src="@{/js/jquery.maskMoney.min.js}"></script>
+	<script th:src="@{/js/jquery.dataTables.min.js}"></script>
+	<script th:src="@{/js/cobranca.js}"></script>
+	<script>
+		$(document).ready(function() {
+			$('#tabelaTitulos').DataTable( {
+		        "paging":   false,
+		        "ordering": true,
+		        "info":     false
+		    } );
+		});
+	</script>
+</body>
+</html>

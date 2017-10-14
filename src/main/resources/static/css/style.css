@@ -1,0 +1,45 @@
+.navbar-brand {
+	padding-top: 12px;
+}
+
+.panel-default {
+	margin-left: 10px;
+	margin-right: 10px;
+	
+}
+
+.alert {
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.link-panel {
+	float: right;
+	margin-right:10px;
+	padding: 0px;
+}
+
+.titulo-panel {
+	float: left;
+	padding-top: 2px;
+}
+
+.label-status-recebido {
+  background-color:#8470FF;
+}
+.label-status-recebido[href]:hover,
+.label-status-recebido[href]:focus {
+  background-color: #7B68EE;
+}
+
+.label-status-pendente {
+  background-color:#8B2323;
+}
+.label-status-pendente[href]:hover,
+.label-status-pendente[href]:focus {
+  background-color: #8B2323;
+}
+
+#tabelaTitulos_filter{
+	float: right;
+}
