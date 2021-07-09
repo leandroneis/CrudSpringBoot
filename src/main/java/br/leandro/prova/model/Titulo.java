@@ -1,5 +1,6 @@
 package br.leandro.prova.model;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -12,25 +13,21 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.constraints.DecimalMax;
-import javax.validation.constraints.DecimalMin;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 
-import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.NumberFormat;
 
 @Entity
 @SequenceGenerator(name = Titulo.SEQUENCE_NAME, sequenceName = Titulo.SEQUENCE_NAME, initialValue = 1, allocationSize = 1)
-public class Titulo {
+public class Titulo  {
 
 	public static final String SEQUENCE_NAME = "SEQUENCIA_TITULO";
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = SEQUENCE_NAME)
 	private Long codigo;
 
-	@NotEmpty(message = "A Descrição é obrigatória")
+	@NotBlank(message = "A Descrição é obrigatória")
 	@Size(max = 60, message = "A descrição não pode conter mais de 60 caracteres")
 	private String descricao;
 
@@ -132,4 +129,15 @@ public class Titulo {
 		return true;
 	}
 
+	@Override
+	public String toString() {
+		return "Titulo{" +
+				"codigo=" + codigo +
+				", descricao='" + descricao + '\'' +
+				", dataVencimento=" + dataVencimento +
+				", valor=" + valor +
+				", status=" + status +
+				", tipoLancamento=" + tipoLancamento +
+				'}';
+	}
 }

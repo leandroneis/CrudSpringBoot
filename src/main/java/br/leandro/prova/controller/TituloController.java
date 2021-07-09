@@ -63,16 +63,17 @@ public class TituloController {
 	}
 	
 	@RequestMapping("{codigo}")
-	public ModelAndView edicao(@PathVariable("codigo") Titulo titulo) {
-		ModelAndView mv = new ModelAndView(CADASTRO_VIEW); 
+	public ModelAndView edicao(@PathVariable("codigo") Long codigoTitulo) {
+		Titulo titulo = cadastroTituloService.buscarPorId(codigoTitulo);
+		ModelAndView mv = new ModelAndView(CADASTRO_VIEW);
 		mv.addObject(titulo);
 		return mv;
 	}
-	
+
 	@RequestMapping(value="{codigo}", method = RequestMethod.DELETE)
 	public String excluir(@PathVariable Long codigo, RedirectAttributes attributes) {
 		cadastroTituloService.excluir(codigo);
-		
+
 		attributes.addFlashAttribute("mensagem", "Título excluído com sucesso!");
 		return "redirect:/titulos";
 	}

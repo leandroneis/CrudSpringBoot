@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" 
-	xmlns:th="http://www.thymeleaf.org"
-	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-    layout:decorator="LayoutPadrao">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorate="~{LayoutPadrao}">
 
 <head>
 	<title>Cadastro de título</title>
@@ -10,11 +10,10 @@
 
 <section layout:fragment="conteudo">
     <form class="form-horizontal" method="POST" th:action="@{/titulos}" th:object="${titulo}">
-    
-    	<div layout:include="MensagemGeral"></div>
-    	<div layout:include="MensagemErro"></div>
-    	
-    
+
+		<div th:replace="MensagemGeral"></div>
+		<div th:replace="MensagemErro"></div>
+
     	<div class="panel panel-default">
     		<div class="panel-heading">
     		<div class="clearfix">
